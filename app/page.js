@@ -1,21 +1,27 @@
-"use client"; 
+"use client";
 
-import {signIn}from "next-auth/react"; 
-import { useState } from "react"; 
+import {signIn,useSession}from "next-auth/react"; 
+import { useEffect,useState } from "react"; 
 import { useRouter } from "next/navigation"; 
 
-export default function Login(){ 
 
+export default function Login(){ 
+const {data: session, status}= useSession();
   const router=useRouter(); 
+
+  useEffect(()=>{
+    if(session){
+      router.replace("/employee");
+    }
+  },[session, router]);
+
   const[email,setEmail]=useState(""); 
   const[password,setPassword]=useState(""); 
   const handleEmailLogin = (e) => { 
-
-
+    
     e.preventDefault();
-    router.push("/landing") 
+    router.push("/employee") ;
     }; 
-
 
     return( 
     <div className="log"> 
@@ -50,8 +56,11 @@ export default function Login(){
 
         <button type="button" 
         id="google" 
-        onClick={() => {signIn("google")
-}}
+        onClick={() => {signIn("google",{
+          prompt:"login",
+        })
+  }
+}
         > Google 
         </button> 
                 
@@ -63,3 +72,9 @@ export default function Login(){
   </div> 
         );
   }
+
+
+
+
+
+

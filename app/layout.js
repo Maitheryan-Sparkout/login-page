@@ -1,10 +1,14 @@
 import "./globals.css";
-export default function Login({ children }) {
+import Providers from "./providers";
+
+export default function RootLayout({ children }) {
   return (
-    <html>
+    <html lang="en">
       <body>
-        {children}
-        </body>
+        <Providers>
+          {children}
+        </Providers>
+      </body>
     </html>
   );
 }
