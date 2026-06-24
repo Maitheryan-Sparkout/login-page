@@ -4,6 +4,8 @@ import DepartementFilter from "../components/DepartmentFilter";
 import EmployeeCard from "../components/EmployeeCard";
 import Navbar from "../components/Navbar";
 import SearchBar from "../components/SearchBar";
+import RecentlyViewed from "../components/RecentlyViewed";
+
 
 
 export default async function Employee({searchParams}) {
@@ -30,6 +32,7 @@ const totalPages=Math.ceil(data.total/limit);
     
 
     return(
+        
         <div className="employee">
             <Navbar/>
 
@@ -37,6 +40,7 @@ const totalPages=Math.ceil(data.total/limit);
             <SearchBar/>
             <DepartementFilter/>
 
+            <RecentlyViewed/>
             <div>
                 {employee.map((user)=>(
                     <EmployeeCard

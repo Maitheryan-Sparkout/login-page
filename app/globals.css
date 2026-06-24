@@ -210,3 +210,15 @@ color: rgb(141, 20, 20);
 font-size:large;
 font-weight: 900;
 }
+
+.recent h2{
+margin-left: 20px;
+color:antiquewhite
+}
+.key{
+  margin-left: 25px;
+  font-size:medium;
+  }
+  .key li{
+    list-style-type:square;
+  }

@@ -1,4 +1,19 @@
+"use client";
+import { useEffect } from "react";
+import useRecentEmployeeStore from "../store/recentEmployeeStore";
+
 export default function EmployeeDetails({employee}){
+    const addRecentEmployee=useRecentEmployeeStore(
+        (state)=>state.addRecentEmployee
+    );
+
+    useEffect(()=>{
+        if(employee){
+            addRecentEmployee(employee);
+        }
+    
+    },[employee,addRecentEmployee]);
+
     return(
     <div className="detail" >
         <img 
